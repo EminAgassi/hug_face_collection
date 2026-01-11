@@ -1,95 +1,89 @@
-# Hug Face Collection
+# README
 
-This repository contains a collection of modules for speech-to-text, text-to-speech, and model integration using Hugging Face and related tools.
+## Hug Face Collection
 
-## Modules
-
-- **model_hug_face.py**
-  - Integrates and manages Hugging Face models for various NLP tasks.
-
-- **speech-to-text-bm25.py**
-  - Provides speech-to-text functionality and leverages BM25 for text retrieval or ranking.
-
-- **test.py**
-  - Contains test scripts and examples to validate the functionality of the modules.
-
-- **model_hug_face-env-requirements.txt**
-  - Environment requirements for running Hugging Face model integrations.
-
-- **tts-env-requirements.txt**
-  - Environment requirements for text-to-speech modules.
-
-- **whisper-env-requirements.txt**
-  - Environment requirements for Whisper-based speech-to-text modules.
-
-- **replace.txt**
-  - (Purpose unspecified; likely used for text replacement or configuration.)
-
-
-
-## Important Note for PyTorch Installation
-
-If you require CUDA 12.8 support, install torch and torchvision using the following command **after creating and activating your virtual environment**:
-
-```
-pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-```
-
-This ensures you get the correct CUDA-enabled versions. Do this instead of installing torch/torchvision from the requirements file if you encounter installation errors.
-
-## Environment Setup
-
-
-To use the modules, you should create a separate Python virtual environment for each requirements file as needed. 
-
-**Important for Windows users:**
-Before activating a virtual environment, you may need to run the following command in PowerShell to allow script execution for the current process:
-
-```
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
-
-Below are the instructions for each:
-
-### 1. model_hug_face-env-requirements.txt
-
-```
-python -m venv venv_hugface
-venv_hugface\Scripts\activate  # On Windows
-pip install -r model_hug_face-env-requirements.txt
-```
-
-### 2. tts-env-requirements.txt
-
-```
-python -m venv venv_tts
-venv_tts\Scripts\activate  # On Windows
-pip install -r tts-env-requirements.txt
-```
-
-### 3. whisper-env-requirements.txt
-
-```
-python -m venv venv_whisper
-venv_whisper\Scripts\activate  # On Windows
-pip install -r whisper-env-requirements.txt
-```
-
-Deactivate the environment with:
-```
-deactivate
-```
-
-
-## Usage
-
-1. Activate the appropriate environment for the module you want to use.
-2. Run the desired module. For example, to run the Hugging Face model integration:
-  ```
-  py .\model_hug_face.py
-  ```
-3. Refer to `test.py` for usage examples.
+This project provides tools for working with medical transcripts and large language models, including integration with Hugging Face models and Ollama for local inference.
 
 ---
 
-Feel free to contribute or open issues for improvements!
+## Modules Overview
+
+- **model_hug_face.py**: Loads and interacts with Hugging Face models (e.g., google/gemma-3-4b-it), handles authentication, and provides a chatbot interface for answering medical questions based on transcripts.
+- **model_hug_face-env-requirements.txt**: Lists Python dependencies for the Hugging Face model environment.
+- **questions.json**: Contains the list of questions to be answered by the model.
+- **Other scripts**: May include utilities for transcript processing, Whisper ASR, and Ollama integration.
+
+---
+
+## Environment Setup
+
+### 1. Create a Virtual Environment
+
+```powershell
+python -m venv venv
+```
+
+### 2. Activate the Virtual Environment
+
+**On Windows (PowerShell):**
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\venv\Scripts\Activate
+```
+
+**On Windows (Command Prompt):**
+```cmd
+venv\Scripts\activate
+```
+
+### 3. Install Requirements
+
+```powershell
+pip install -r model_hug_face-env-requirements.txt
+```
+
+**Important Note:**  
+For CUDA 12.8 support, install PyTorch and torchvision with:
+```powershell
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+```
+
+---
+
+## Setting Up Hugging Face Authentication
+
+You must set the `HF_TOKEN` environment variable with your Hugging Face access token for authentication.
+
+**Temporary (for current session):**
+```powershell
+$env:HF_TOKEN="your_huggingface_token_here"
+```
+
+**Permanent (all sessions):**
+1. Open "Edit the system environment variables" from the Start menu.
+2. Click "Environment Variables..."
+3. Under "User variables", click "New..."
+4. Set `HF_TOKEN` as the name and paste your token as the value.
+5. Click OK.
+
+---
+
+## Usage
+
+1. Activate your virtual environment as shown above.
+2. Ensure `HF_TOKEN` is set in your environment.
+3. Run the chatbot:
+    ```powershell
+    py .\model_hug_face.py
+    ```
+
+---
+
+## Notes
+
+- The script will attempt to log in to Hugging Face using the `HF_TOKEN` environment variable.
+- The model `google/gemma-3-4b-it` is loaded from Hugging Face and run with optimal precision for your hardware.
+- For best accuracy, use the Hugging Face version; for speed and convenience on local CPUs, consider Ollama.
+- Model files are cached by default in `C:\Users\<your-username>\.cache\huggingface\hub`.
+
+---
