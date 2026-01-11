@@ -28,7 +28,17 @@ This repository contains a collection of modules for speech-to-text, text-to-spe
 
 ## Environment Setup
 
-To use the modules, you should create a separate Python virtual environment for each requirements file as needed. Below are the instructions for each:
+
+To use the modules, you should create a separate Python virtual environment for each requirements file as needed. 
+
+**Important for Windows users:**
+Before activating a virtual environment, you may need to run the following command in PowerShell to allow script execution for the current process:
+
+```
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Below are the instructions for each:
 
 ### 1. model_hug_face-env-requirements.txt
 
