@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environments
+model_hug_face-env/
+tts-env/
+whisper-env/
+
+# VSCode
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Requirements and logs
+*.log
+*.sqlite3
+*.db
+*.bak
+*.swp
+
+# Secret and filter-repo files
+replace.txt
