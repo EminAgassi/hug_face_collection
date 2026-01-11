@@ -25,9 +25,43 @@ This repository contains a collection of modules for speech-to-text, text-to-spe
 - **replace.txt**
   - (Purpose unspecified; likely used for text replacement or configuration.)
 
+
+## Environment Setup
+
+To use the modules, you should create a separate Python virtual environment for each requirements file as needed. Below are the instructions for each:
+
+### 1. model_hug_face-env-requirements.txt
+
+```
+python -m venv venv_hugface
+venv_hugface\Scripts\activate  # On Windows
+pip install -r model_hug_face-env-requirements.txt
+```
+
+### 2. tts-env-requirements.txt
+
+```
+python -m venv venv_tts
+venv_tts\Scripts\activate  # On Windows
+pip install -r tts-env-requirements.txt
+```
+
+### 3. whisper-env-requirements.txt
+
+```
+python -m venv venv_whisper
+venv_whisper\Scripts\activate  # On Windows
+pip install -r whisper-env-requirements.txt
+```
+
+Deactivate the environment with:
+```
+deactivate
+```
+
 ## Usage
 
-1. Set up the required environment using the provided requirements files.
+1. Activate the appropriate environment for the module you want to use.
 2. Run the desired module as needed.
 3. Refer to `test.py` for usage examples.
 
