@@ -26,6 +26,17 @@ This repository contains a collection of modules for speech-to-text, text-to-spe
   - (Purpose unspecified; likely used for text replacement or configuration.)
 
 
+
+## Important Note for PyTorch Installation
+
+If you require CUDA 12.8 support, install torch and torchvision using the following command **after creating and activating your virtual environment**:
+
+```
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+```
+
+This ensures you get the correct CUDA-enabled versions. Do this instead of installing torch/torchvision from the requirements file if you encounter installation errors.
+
 ## Environment Setup
 
 
