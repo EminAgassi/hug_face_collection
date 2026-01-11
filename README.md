@@ -80,10 +80,14 @@ Deactivate the environment with:
 deactivate
 ```
 
+
 ## Usage
 
 1. Activate the appropriate environment for the module you want to use.
-2. Run the desired module as needed.
+2. Run the desired module. For example, to run the Hugging Face model integration:
+  ```
+  py .\model_hug_face.py
+  ```
 3. Refer to `test.py` for usage examples.
 
 ---
